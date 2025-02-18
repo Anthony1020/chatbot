@@ -205,6 +205,9 @@
             background: var(--chat--color-background);
             display: flex;
             flex-direction: column;
+			-webkit-overflow-scrolling: touch; /* Añade scroll suave en iOS */
+			touch-action: pan-y; /* Permite scroll vertical */
+			overscroll-behavior: contain; /* Previene scroll propagation */
         }
 
         .n8n-chat-widget .chat-message {
@@ -340,8 +343,10 @@
 		}
 				
 		.n8n-chat-widget .chat-container {
+			touch-action: pan-y;
 			-webkit-overflow-scrolling: touch;
 			-webkit-tap-highlight-color: transparent;
+			overscroll-behavior: contain;
 		}
 		
 		.n8n-chat-widget .chat-messages {
@@ -737,6 +742,13 @@
             element.click();
         });
     };
+	
+    const chatMessages = chatContainer.querySelector('.chat-messages');
+        chatMessages.addEventListener('touchstart', function(e) {
+        if (this.scrollHeight > this.clientHeight) {
+            e.stopPropagation();
+        }
+    }, { passive: true });
 
     // Apply touch support to interactive elements
     addTouchSupport(newChatBtn);
