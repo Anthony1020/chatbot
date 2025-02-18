@@ -616,7 +616,7 @@
 			const data = await response.json();
 			let botMessage = Array.isArray(data) ? data[0].output : data.output;
 			
-			console.log('botMessageBefore = ' + botMessage);
+			//console.log('botMessageBefore = ' + botMessage);
 			
 			// Eliminar cualquier etiqueta HTML existente
 			botMessage = botMessage.replace(/<[^>]*>/g, '');
@@ -627,7 +627,7 @@
 				return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url.split('">')[0]}</a>`;
 			});
 			
-			console.log('botMessage = ' + botMessage);
+			//console.log('botMessage = ' + botMessage);
 			
 			const botMessageDiv = document.createElement('div');
 			botMessageDiv.className = 'chat-message bot';
