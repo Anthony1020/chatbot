@@ -101,6 +101,7 @@
         }
 
         .n8n-chat-widget .close-button {
+			all: unset;
             position: absolute;
             right: 16px;
             top: 50%;
@@ -258,6 +259,7 @@
         }
 
         .n8n-chat-widget .chat-input button {
+			all: unset;
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
@@ -517,7 +519,7 @@
     async function startNewConversation() {
 		// Check if there's an existing session
 		const existingSession = loadSessionFromStorage();
-		console.log('existingSession = ' + existingSession.sessionId);
+		//console.log('existingSession = ' + existingSession.sessionId);
 		
 		if (existingSession.sessionId) {
 			currentSessionId = existingSession.sessionId;
@@ -679,6 +681,7 @@
 			padding: 5px;
 			opacity: 0.8;
 			transition: opacity 0.2s;
+			margin: auto;
 		`;
 		clearButton.addEventListener('click', clearChatSession);
 		clearButton.addEventListener('mouseover', () => clearButton.style.opacity = '1');
