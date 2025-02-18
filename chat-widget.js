@@ -723,4 +723,23 @@
             chatContainer.classList.remove('open');
         });
     });
+	
+    // Add in the script section
+    toggleButton.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        chatContainer.classList.toggle('open');
+    });
+	
+    // Add touch support for buttons
+    const addTouchSupport = (element) => {
+        element.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            element.click();
+        });
+    };
+
+    // Apply touch support to interactive elements
+    addTouchSupport(newChatBtn);
+    addTouchSupport(sendButton);
+    closeButtons.forEach(button => addTouchSupport(button));
 })();
